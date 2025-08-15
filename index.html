@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Md Shami — Portfolio</title>
+  <meta name="description" content="Md Shami — Brand advertising, print & design solutions.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#000;
+      --accent-1:#D4324A;
+      --accent-2:#FC8F28;
+      --accent-3:#368DA8;
+      --muted: rgba(255,255,255,.6);
+      --glass-border: rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:#000;color:#fff;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      line-height:1.45;padding:24px;
+      cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='%23ffffff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 2v28M2 16h28'/%3E%3Cpath d='M16 2l-3 3m3-3l3 3M16 30l-3-3m3 3l3-3M2 16l3-3m-3 3l3 3M30 16l-3-3m3 3l-3 3'/%3E%3C/g%3E%3C/svg%3E") 16 16, move;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px;position:relative;z-index:2}
+    /* Fluid background */
+    .fluid-bg{position:fixed;inset:-20vmax;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(40vmax 40vmax at calc(var(--mx,50%)) calc(var(--my,40%)), rgba(212,50,74,0.20), transparent 60%),
+        radial-gradient(45vmax 45vmax at calc(100% - var(--mx,50%)) calc(60% - var(--my,40%)), rgba(252,143,40,0.18), transparent 60%),
+        radial-gradient(55vmax 55vmax at calc(30% + var(--mx,10%)) calc(80% + var(--my,10%)), rgba(54,141,168,0.20), transparent 65%);
+      filter: blur(40px) saturate(120%);
+      animation: float 16s ease-in-out infinite;
+    }
+    @keyframes float{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-2%,0)}100%{transform:translate3d(0,0,0)}}
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;position:relative;z-index:3}
+    .brand{display:flex;align-items:center;gap:12px}
+    .pfp-wrap{width:56px;height:56px;border-radius:999px;padding:2px;background:conic-gradient(from 0deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));box-shadow:0 8px 28px rgba(0,0,0,.45), 0 0 30px rgba(212,50,74,.15)}
+    .pfp{width:100%;height:100%;border-radius:inherit;object-fit:cover;display:block}
+    .brand h1{font-size:18px;margin:0}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:12px;align-items:center}
+    .link-underline{position:relative}
+    .link-underline:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--accent-1),var(--accent-3));opacity:0;transform:translateY(4px);transition:all .18s ease}
+    .link-underline:hover:after{opacity:1;transform:translateY(0)}
+    .glass-btn{position:relative;display:inline-block;padding:10px 18px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(255,255,255,.02), rgba(255,255,255,.01));border:1px solid var(--glass-border);
+      backdrop-filter: blur(6px) saturate(120%);-webkit-backdrop-filter: blur(6px) saturate(120%);
+      color:#fff;font-weight:600;font-size:14px;cursor:pointer;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,.6), 0 0 30px rgba(211,51,74,.06);
+    }
+    .glass-btn:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg, rgba(212,50,74,.18), rgba(252,143,40,.12), rgba(54,141,168,.12));mix-blend-mode:screen;opacity:.9;filter:blur(20px) saturate(120%);transform:translateX(-30%);transition:transform .9s cubic-bezier(.2,.9,.2,1)}
+    .glass-btn span{position:relative;z-index:2;display:inline-flex;gap:8px;align-items:center}
+    .glass-btn:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.6), 0 0 60px rgba(212,50,74,.12)}
+    .glass-btn:hover:before{transform:translateX(10%)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:24px}
+    .eyebrow{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+    .headline{font-size:40px;margin:8px 0 12px;line-height:1.02}
+    .sub{color:var(--muted);max-width:680px}
+    .profile-card{position:relative;height:340px;border-radius:18px;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid var(--glass-border);display:grid;place-items:center;isolation:isolate}
+    .profile-card:before{content:"";position:absolute;inset:-1px;border-radius:20px;padding:1px;background:conic-gradient(from 0deg,var(--accent-1),var(--accent-2),var(--accent-3),var(--accent-1));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+    .profile-img{width:100%;height:100%;object-fit:cover;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.55);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--sc,1));transition:transform .12s ease}
+    .profile-card:hover{--sc:1.03}
+    /* About & Tools */
+    section{margin-bottom:36px}
+    .tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .tool{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.06)}
+    .tool svg{width:34px;height:34px;border-radius:8px;flex:0 0 34px}
+    .tool b{display:block}
+    .tool small{display:block;color:var(--muted)}
+    /* Work */
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .work-card{position:relative;height:150px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);padding:16px;display:flex;align-items:flex-end;font-weight:800;letter-spacing:.3px}
+    .work-card .cat{position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2))}
+    .bg-a{background:linear-gradient(135deg, rgba(212,50,74,.18), rgba(252,143,40,.12)), radial-gradient(60% 100% at 80% 0%, rgba(54,141,168,.28), transparent 60%)}
+    .bg-b{background:linear-gradient(135deg, rgba(54,141,168,.18), rgba(212,50,74,.12)), radial-gradient(60% 100% at 20% 0%, rgba(252,143,40,.28), transparent 60%)}
+    .bg-c{background:linear-gradient(135deg, rgba(252,143,40,.18), rgba(54,141,168,.12)), radial-gradient(60% 100% at 50% 0%, rgba(212,50,74,.28), transparent 60%)}
+    /* Contact & footer */
+    .contact{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+    .input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:transparent;color:#fff}
+    .textarea{min-height:140px}
+    footer{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:13px;margin-top:8px}
+    .footer-chip{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.06)}
+    .footer-ava-wrap{width:36px;height:36px;border-radius:999px;padding:1px;background:conic-gradient(from 0deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1))}
+    .footer-ava{width:100%;height:100%;border-radius:inherit;object-fit:cover;display:block}
+    /* Responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.tools-grid{grid-template-columns:repeat(3,1fr)}.work-grid{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr}}
+    @media (max-width:560px){.tools-grid{grid-template-columns:repeat(2,1fr)}.work-grid{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <div class="fluid-bg" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="pfp-wrap"><img class="pfp" src="assets/avatar.jpg" alt="Avatar of Md Shami"></div>
+        <div>
+          <h1>Md Shami</h1>
+          <p>Brand advertising · Print · Design Solutions</p>
+        </div>
+      </div>
+      <nav>
+        <a class="link-underline" href="#work">Work</a>
+        <a class="link-underline" href="#about">About</a>
+        <a class="link-underline" href="#tools">Tools</a>
+        <a class="link-underline" href="#contact">Contact</a>
+        <button class="glass-btn" id="hireBtn"><span>Hire Me</span></button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Hello — I’m</div>
+        <h2 class="headline">Md Shami — Creative Director & Graphic Designer</h2>
+        <p class="sub">I craft high‑impact print advertising and visual identities: glow signboards, menus, stickers, vinyl, banners, visiting cards, PVC & ID cards, certificates, translits and tags. Tools: CorelDRAW, Illustrator, Photoshop, InDesign & Figma.</p>
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <button class="glass-btn" onclick="scrollToSection('work')"><span>See my work</span></button>
+          <a class="glass-btn" href="#contact"><span>Get a quote</span></a>
+        </div>
+        <div style="margin-top:18px;color:var(--muted);font-size:13px">Based in Patna, Bihar · Available for freelance & projects</div>
+      </div>
+      <aside class="profile-card" id="profileCard">
+        <img class="profile-img" id="profileImg" src="assets/profile.jpg" alt="Profile photo of Md Shami">
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h3 style="margin:0 0 10px 0">About Me</h3>
+      <p class="sub" style="margin:0 0 14px 0">I’m a detail‑driven designer focused on clarity, brand consistency and print‑perfect execution. From concept to press‑ready files, I handle artwork preparation, colour calibration and vendor coordination to ensure your brand always looks its best.</p>
+    </section>
+
+    <!-- TOOLS LEARNED -->
+    <section id="tools">
+      <h3 style="margin:0 0 10px 0">Tools Learned</h3>
+      <div class="tools-grid">
+        <!-- CorelDRAW -->
+        <div class="tool">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="0" y="0" width="48" height="48" rx="8" fill="#00A651"></rect>
+            <text x="50%" y="58%" text-anchor="middle" font-size="22" font-family="Inter, Arial" font-weight="800" fill="#fff">CD</text>
+          </svg>
+          <div><b>CorelDRAW</b><small>Vector & layout</small></div>
+        </div>
+        <!-- Illustrator -->
+        <div class="tool">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="0" y="0" width="48" height="48" rx="8" fill="#1C1C1C"></rect>
+            <text x="50%" y="58%" text-anchor="middle" font-size="22" font-family="Inter, Arial" font-weight="800" fill="#FF7C00">Ai</text>
+          </svg>
+          <div><b>Adobe Illustrator</b><small>Logos & vectors</small></div>
+        </div>
+        <!-- Photoshop -->
+        <div class="tool">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="0" y="0" width="48" height="48" rx="8" fill="#05162A"></rect>
+            <text x="50%" y="58%" text-anchor="middle" font-size="22" font-family="Inter, Arial" font-weight="800" fill="#31A8FF">Ps</text>
+          </svg>
+          <div><b>Adobe Photoshop</b><small>Editing & compositing</small></div>
+        </div>
+        <!-- InDesign -->
+        <div class="tool">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="0" y="0" width="48" height="48" rx="8" fill="#2B0014"></rect>
+            <text x="50%" y="58%" text-anchor="middle" font-size="22" font-family="Inter, Arial" font-weight="800" fill="#FF3366">Id</text>
+          </svg>
+          <div><b>Adobe InDesign</b><small>Layouts & books</small></div>
+        </div>
+        <!-- Figma -->
+        <div class="tool">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="9" y="5" width="18" height="18" rx="9" fill="#F24E1E"></rect>
+            <rect x="9" y="24" width="18" height="18" rx="9" fill="#A259FF"></rect>
+            <rect x="27" y="5" width="18" height="18" rx="9" fill="#FF7262"></rect>
+            <rect x="27" y="24" width="18" height="18" rx="9" fill="#1ABCFE"></rect>
+            <rect x="9" y="15" width="18" height="18" rx="9" fill="#0ACF83"></rect>
+          </svg>
+          <div><b>Figma</b><small>Prototyping & UI</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK & PROJECTS -->
+    <section id="work">
+      <h3 style="margin:0 0 10px 0">Work & Projects</h3>
+      <div class="work-grid">
+        <div class="work-card bg-a"><span class="cat">Certificates</span></div>
+        <div class="work-card bg-b"><span class="cat">ID Cards</span></div>
+        <div class="work-card bg-c"><span class="cat">Loyalty Cards</span></div>
+        <div class="work-card bg-b"><span class="cat">Invitation Cards</span></div>
+        <div class="work-card bg-c"><span class="cat">Banners / Posters</span></div>
+        <div class="work-card bg-a"><span class="cat">Vinyl / Stickers</span></div>
+        <div class="work-card bg-c"><span class="cat">Menu / Booklets</span></div>
+        <div class="work-card bg-a"><span class="cat">Visiting Cards / Letterheads</span></div>
+        <div class="work-card bg-b"><span class="cat">Brochures / Leaflets</span></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h3 style="margin-bottom:14px">Work with me</h3>
+      <div class="contact">
+        <form id="contactForm" onsubmit="return submitForm(event)">
+          <input class="input" name="name" id="name" placeholder="Your name" required>
+          <div style="height:12px"></div>
+          <input class="input" name="email" id="email" placeholder="Email address" type="email" required>
+          <div style="height:12px"></div>
+          <input class="input" name="subject" id="subject" placeholder="Project / Subject" required>
+          <div style="height:12px"></div>
+          <textarea class="input textarea" name="message" id="message" placeholder="Tell me about your project" required></textarea>
+          <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+            <button class="glass-btn" type="submit"><span>Send message</span></button>
+            <button class="glass-btn" type="button" onclick="copyEmail()"><span>Copy email</span></button>
+          </div>
+        </form>
+
+        <aside style="padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.005));border:1px solid rgba(255,255,255,.06)">
+          <div style="font-weight:700">Md Shami</div>
+          <div style="color:var(--muted);margin-top:8px">Patna, Bihar · Freelance & Local Projects</div>
+
+          <div style="margin-top:16px">
+            <div style="font-size:13px;color:var(--muted)">Email</div>
+            <div style="margin-top:6px;font-weight:700">shami047ansari@gmail.com</div>
+          </div>
+
+          <div style="margin-top:16px">
+            <div style="font-size:13px;color:var(--muted)">Follow</div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+              <a class="glass-btn" target="_blank" href="https://www.linkedin.com/in/md-shami-ansari-13058b23b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><span>LinkedIn</span></a>
+              <a class="glass-btn" target="_blank" href="https://www.instagram.com/mdshami_designer?igsh=MXMxaDc0MmNtaHFqcQ==" aria-label="Instagram"><span>Instagram</span></a>
+              <a class="glass-btn" target="_blank" href="https://www.behance.net/shamiansari3" aria-label="Behance"><span>Behance</span></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-chip">
+        <div class="footer-ava-wrap"><img class="footer-ava" src="assets/avatar.jpg" alt="Avatar"></div>
+        <div>© <span id="year"></span> Md Shami</div>
+      </div>
+      <div style="color:var(--muted)">Made with ❤️ · CorelDRAW · Illustrator · Photoshop · InDesign · Figma</div>
+    </footer>
+  </div>
+
+  <div class="fluid-bg" aria-hidden="true"></div>
+
+  <script>
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('hireBtn').addEventListener('click', ()=>scrollToSection('contact'));
+
+    // Profile tilt
+    (function(){
+      const card = document.getElementById('profileCard');
+      const dampen = 6;
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const cx = (e.clientX - r.left) / r.width - 0.5;
+        const cy = (e.clientY - r.top) / r.height - 0.5;
+        card.style.setProperty('--rx', (-cy * dampen)+'deg');
+        card.style.setProperty('--ry', (cx * dampen)+'deg');
+      });
+      card.addEventListener('mouseleave', ()=>{
+        card.style.setProperty('--rx','0deg');
+        card.style.setProperty('--ry','0deg');
+      });
+    })();
+
+    // Fluid gradient reacts to scroll + mouse
+    (function(){
+      const root = document.documentElement;
+      const updateScroll = ()=>{
+        const max = Math.max(1, document.body.scrollHeight - innerHeight);
+        const y = scrollY / max;
+        root.style.setProperty('--my', (y*100)+'%');
+      };
+      const updateMouse = (e)=>{
+        const x = e.clientX / innerWidth;
+        root.style.setProperty('--mx', (x*100)+'%');
+      };
+      updateScroll();
+      document.addEventListener('scroll', updateScroll, {passive:true});
+      document.addEventListener('mousemove', updateMouse);
+    })();
+
+    // Contact form -> mailto
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !subject || !message){
+        alert('Please fill all fields'); return false;
+      }
+      const body = `Hi Md Shami,%0D%0A%0D%0A${message}%0D%0A%0D%0A— ${name} (${email})`;
+      const mailto = `mailto:shami047ansari@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.location.href = mailto;
+      return false;
+    }
+    function copyEmail(){
+      navigator.clipboard && navigator.clipboard.writeText('shami047ansari@gmail.com').then(()=>{
+        alert('Email copied: shami047ansari@gmail.com');
+      }).catch(()=>{ alert('Copy failed — email: shami047ansari@gmail.com'); });
+    }
+  </script>
+</body>
+</html>
